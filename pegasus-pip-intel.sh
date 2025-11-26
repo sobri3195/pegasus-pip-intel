@@ -1,5 +1,27 @@
 #!/bin/bash
 #!Author Emrekybs
+#
+# ===============================================================================
+# Modified By: Lettu Kes dr. Muhammad Sobri Maulana, S.Kom, CEH, OSCP, OSCE
+# GitHub: https://github.com/sobri3195
+# Email: muhammadsobrimaulana31@gmail.com
+# 
+# Social Media & Contact:
+# - YouTube: https://www.youtube.com/@muhammadsobrimaulana6013
+# - Telegram: https://t.me/winlin_exploit
+# - TikTok: https://www.tiktok.com/@dr.sobri
+# - Website: https://muhammadsobrimaulana.netlify.app
+# - Sevalla: https://muhammad-sobri-maulana-kvr6a.sevalla.page/
+#
+# Support & Donation:
+# - Lynk.id: https://lynk.id/muhsobrimaulana
+# - Trakteer: https://trakteer.id/g9mkave5gauns962u07t
+# - Gumroad: https://maulanasobri.gumroad.com/
+# - KaryaKarsa: https://karyakarsa.com/muhammadsobrimaulana
+# - Nyawer: https://nyawer.co/MuhammadSobriMaulana
+#
+# WhatsApp Group: https://chat.whatsapp.com/B8nwRZOBMo64GjTwdXV8Bl
+# ===============================================================================
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -96,30 +118,30 @@ clear
            
         2) echo -e "${RED}Running Gravatar Osint...${NC}"
            read -p "Enter target E-Mail: " gravatar2
-	   hashtray email $gravatar2
+       hashtray email $gravatar2
            ;;   
        
         3) echo -e "${RED}Running BBOT - E-MAIL Collector...${NC}"
            read -p "Enter target Domain: " emailcollector
-	   bbot -t $emailcollector -f email-enum  -ef subdomain-enum, web-basic, web-thorough, active, affiliates -y
+       bbot -t $emailcollector -f email-enum  -ef subdomain-enum, web-basic, web-thorough, active, affiliates -y
            ;;
            
            
         4) echo -e "${RED}Running Ignorant...${NC}"
-           read -p "Enter Target Phone Number without + (example: 90 5216887000): " phone	
+           read -p "Enter Target Phone Number without + (example: 90 5216887000): " phone    
            ignorant --only-used $phone
            ;;
         
         5) echo -e "${RED}Running IP Geolocator & Coordinate Mapping...${NC}"
-           read -p "Enter IP Address: " ip	
+           read -p "Enter IP Address: " ip    
            orbis-cli $ip
            ;;
         
-        6) echo "Your IP Address ..."	
+        6) echo "Your IP Address ..."    
            curl ipinfo.io
            ;;
         
-     	        7)echo -e "${RED}Select depth for analysis and Continue..${NC}"
+                 7)echo -e "${RED}Select depth for analysis and Continue..${NC}"
            echo -e "1--Top 5"
            echo -e "2--Top 10"
            echo -e "3--Top 20"
@@ -159,102 +181,102 @@ clear
            
            
         8) echo -e "${RED}Running Gravatar Account information Search...${NC}"
-           read -p "Enter target Username: " gravatar1	
+           read -p "Enter target Username: " gravatar1    
            hashtray account $gravatar1
            ;;   
         
         9) echo -e "${RED}Running Masto/Mastodon.social Account Osint...${NC}"
-           read -p "Search Username: " masto	
+           read -p "Search Username: " masto    
            masto -user $masto
            ;;      
            
          10) echo -e "${RED}Maigret Advanced Username Search result are saved as pdf...${NC}"
-           read -p "Enter Target Username: " maigretpip	
+           read -p "Enter Target Username: " maigretpip    
            maigret $maigretpip --no-progressbar --pdf
            ;;     
         
         11) echo -e "${RED} Running Simple Username Search...${NC}"
-           read -p "Enter Target Username: " user1	
+           read -p "Enter Target Username: " user1    
            search4 -u $user1
            ;;
            
         12) echo -e "${BLUE}Running OnionSearch...${NC}"
-	    echo -e "${RED}(Don't forget to activate the Tor service before making a search!!${NC})" 
-           read -p "Search Query: " onionsearch	
+        echo -e "${RED}(Don't forget to activate the Tor service before making a search!!${NC})" 
+           read -p "Search Query: " onionsearch    
            onionsearch "$onionsearch" --output onionsearch.txt
            ;;   
         
         13) echo -e "${BLUE}Running Thedevilseye...${NC}"
-             echo -e "${RED}(Don't forget to activate the Tor service before making a search!!${NC})" 	
-           read -p "Search Query: " dark1	
+             echo -e "${RED}(Don't forget to activate the Tor service before making a search!!${NC})"     
+           read -p "Search Query: " dark1    
            thedevilseye -c 30 $dark1
            ;;   
         
         14) echo -e "${RED}Running Lightweight Web information gathering...${NC}"
-           read -p "Enter Target Domain: " recon	
+           read -p "Enter Target Domain: " recon    
            r3con1z3r -d $recon
            ;;
         
         15) echo -e "${RED}Running Subdomain Enumeration...${NC}"
-           read -p "Enter Target Domain: " subdomain3	
+           read -p "Enter Target Domain: " subdomain3    
            assetfinder --subs-only $subdomain3
            ;; 
         
         16) echo -e "${RED}Running Arachnid...${NC}"
-           read -p "Enter Target URL: " url	
+           read -p "Enter Target URL: " url    
            arachnid $url --stealth --find docs phone --agent y --doc ".psd" --string "password" --regex "(?i)password"
            ;; 
         
         17) echo -e "${RED}Running photon...${NC}"
-           read -p "Enter Target URL: " url2	
+           read -p "Enter Target URL: " url2    
             photon --url $url2 --wayback --keys -r "(?i)(password\b.*([\'\"]?)[^\1\n\r]{8,}?\1|\b(?:\d{4}[- ]?){3}\d{4}\b|\b\d{3}-\d{2}-\d{4}\b|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\b(api_key|apikey|secret|password|pass|token)\b[\'\"]?\s*[:=]\s*[\'\"]?[\w-]{16,}|\b(?:\d{1,3}\.){3}\d{1,3}\b)"
            ;;    
         
         18) echo -e "${RED}Running Postleaks...${NC}"
-           read -p "Search Keyword (Domain, company, etc.): " postleaks	
+           read -p "Search Keyword (Domain, company, etc.): " postleaks    
             postleaks -k $postleaks
            ;;
            
         19) echo -e "${RED}Running Postmaniac...${NC}"
             echo "(example: tesla)"
-           read -p "Enter Query (Domain, company, etc. ): " postman	
+           read -p "Enter Query (Domain, company, etc. ): " postman    
             postmaniac $postman
            ;;
          
         20) echo -e "${RED}Running Google Dorking...${NC}"
-            read -p "Search Query (Domain, company, Keyword, etc.): " dork	
+            read -p "Search Query (Domain, company, Keyword, etc.): " dork    
             oxdork  $dork -c 30 -o dorks
            ;;         
          
          
-	21) echo -e "${BOLD_BLUE}Installing necessary tools and packages...${NC}"
-	   # pip installs
-	   sudo apt-get update
-	   sudo pip3 install maigret
-	   sudo pip3 install ignorant
-	   sudo pip3 install holehe
-	   sudo pip3 install social-analyzer
-	   sudo pip3 install orbis-unum
-	   sudo pip3 install arachnid-spider
-	   sudo pip3 install masto
-	   sudo pip3 install postmaniac
-	   sudo pip3 install ipinfo
-	   sudo pip3 install thedevilseye
-	   sudo pip3 install R3con1z3r
-	   sudo pip3 install oxdork
-	   sudo pip3 install hashtray
-	   sudo pip3 install postleaks
-	   sudo pip3 install onionsearch
-	   sudo pip3 install search4
-	   sudo pip3 install bbot
-	   sudo apt install assetfinder -y
-	   sudo apt install photon -y
-	   sudo apt install tor -y	
-	   sudo apt install curl -y	  
-	   clear
-	
-	   echo -e "${BOLD_GREEN}All tools and packages have been installed.${NC}"
-	   ;;  
+    21) echo -e "${BOLD_BLUE}Installing necessary tools and packages...${NC}"
+       # pip installs
+       sudo apt-get update
+       sudo pip3 install maigret
+       sudo pip3 install ignorant
+       sudo pip3 install holehe
+       sudo pip3 install social-analyzer
+       sudo pip3 install orbis-unum
+       sudo pip3 install arachnid-spider
+       sudo pip3 install masto
+       sudo pip3 install postmaniac
+       sudo pip3 install ipinfo
+       sudo pip3 install thedevilseye
+       sudo pip3 install R3con1z3r
+       sudo pip3 install oxdork
+       sudo pip3 install hashtray
+       sudo pip3 install postleaks
+       sudo pip3 install onionsearch
+       sudo pip3 install search4
+       sudo pip3 install bbot
+       sudo apt install assetfinder -y
+       sudo apt install photon -y
+       sudo apt install tor -y    
+       sudo apt install curl -y      
+       clear
+    
+       echo -e "${BOLD_GREEN}All tools and packages have been installed.${NC}"
+       ;;  
 
         0) echo -e "${BOLD_RED}"
 cat << "EOF"
@@ -318,7 +340,7 @@ for key in "${!tools[@]}"; do
 done | sort -V | while IFS= read -r line; do
     echo -e "${BOLD_GREEN}Tool: $line${NC}"
 done
-	 ;;
+     ;;
        22)
            DISTRO=$(cat /etc/*release | grep '^PRETTY_NAME' | cut -d '=' -f2 | tr -d '"')
 HOST=$(hostname)
@@ -356,10 +378,10 @@ echo -e "${BOLD_BLUE}    💾 Disk Usage: ${RED}$DISK"
 echo -e "${RESET}"
 echo -e "${BOLD_BLUE}    🌐 Interfaces: \n${RED}$INTERFACES"
 echo -e "${RESET}"
-echo -e "${BOLD_BLUE}    				   "
+echo -e "${BOLD_BLUE}                       "
 
 echo -e "      🎈🎈🎈 By EmreKybs 🎈🎈🎈${BOLD_GREEN}"
-		   
+           
     ;;    
         99) echo -e "${BOLD_RED}🎈🎈🎈 Thanks for using 🎈🎈🎈${NC}"
             echo -e "${BOLD_RED}⚡ GitHub.com/emrekybs ⚡ ${NC}"
