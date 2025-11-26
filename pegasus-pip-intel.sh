@@ -95,6 +95,24 @@ echo -e "${BOLD_BLUE}--------------------------------------------------${NC}"
     echo -e "\033[31m{18}\033[0m--Search for sensitive data in Postman"
     echo -e "\033[31m{19}\033[0m--Extract Creds, Token, Username, E-Mail from Postman."
     echo -e "\033[31m{20}\033[0m--Google Dorking"
+    echo -e "\033[31m{23}\033[0m--WHOIS Domain Lookup"
+    echo -e "\033[31m{24}\033[0m--Wayback Machine URL History"
+    echo -e "\033[31m{25}\033[0m--DNS Reconnaissance"
+    echo -e "\033[31m{26}\033[0m--Advanced Subdomain Finder"
+    echo -e "\033[31m{27}\033[0m--Web Technologies Detection"
+echo -e "${BOLD_BLUE}--------------------------------------------------${NC}"
+
+
+    echo -e "${BOLD_YELLOW}===𝙂𝙄𝙏𝙃𝙐𝘽 & 𝙋𝙇𝘼𝙏𝙁𝙊𝙍𝙈 𝙊𝙎𝙄𝙉𝙏===${NC}"
+    echo -e "\033[31m{28}\033[0m--GitHub User Intelligence"
+    echo -e "\033[31m{29}\033[0m--Twitter/X Username OSINT"
+    echo -e "\033[31m{30}\033[0m--LinkedIn Profile Finder"
+echo -e "${BOLD_BLUE}--------------------------------------------------${NC}"
+
+
+    echo -e "${BOLD_YELLOW}===𝘽𝙍𝙀𝘼𝘾𝙃 & 𝙇𝙀𝘼𝙆 𝘿𝙀𝙏𝙀𝘾𝙏𝙄𝙊𝙉===${NC}"
+    echo -e "\033[31m{31}\033[0m--Email Breach Checker (H8mail)"
+    echo -e "\033[31m{32}\033[0m--Sherlock - Username Tracker"
 echo -e "${BOLD_BLUE}--------------------------------------------------${NC}"
 
 
@@ -244,12 +262,62 @@ clear
            ;;
          
         20) echo -e "${RED}Running Google Dorking...${NC}"
-            read -p "Search Query (Domain, company, Keyword, etc.): " dork    
+            read -p "Search Query (Domain, company, Keyword, etc.): " dork
             oxdork  $dork -c 30 -o dorks
-           ;;         
-         
-         
-    21) echo -e "${BOLD_BLUE}Installing necessary tools and packages...${NC}"
+           ;;
+
+        23) echo -e "${RED}Running WHOIS Domain Lookup...${NC}"
+           read -p "Enter Domain Name: " domain
+           whois $domain
+           ;;
+
+        24) echo -e "${RED}Running Wayback Machine URL History...${NC}"
+           read -p "Enter Target URL/Domain: " wayback_url
+           waybackurls $wayback_url
+           ;;
+
+        25) echo -e "${RED}Running DNS Reconnaissance...${NC}"
+           read -p "Enter Target Domain: " dns_target
+           dnsrecon -d $dns_target
+           ;;
+
+        26) echo -e "${RED}Running Advanced Subdomain Finder (Subfinder)...${NC}"
+           read -p "Enter Target Domain: " subfinder_target
+           subfinder -d $subfinder_target -all -recursive
+           ;;
+
+        27) echo -e "${RED}Running Web Technologies Detection (WhatWeb)...${NC}"
+           read -p "Enter Target URL: " whatweb_target
+           whatweb -a 3 --color=always $whatweb_target
+           ;;
+
+        28) echo -e "${RED}Running GitHub User Intelligence (GitFive)...${NC}"
+           read -p "Enter GitHub Username or Email: " github_target
+           gitfive $github_target
+           ;;
+
+        29) echo -e "${RED}Running Twitter/X Username OSINT (Twint)...${NC}"
+           read -p "Enter Twitter/X Username (without @): " twitter_user
+           twint -u $twitter_user --user-full
+           ;;
+
+        30) echo -e "${RED}Running LinkedIn Profile Finder (LinkedIn2Username)...${NC}"
+           read -p "Enter Company Name: " company_name
+           linkedin2username -c "$company_name"
+           ;;
+
+        31) echo -e "${RED}Running Email Breach Checker (H8mail)...${NC}"
+           read -p "Enter Email Address: " breach_email
+           h8mail -t $breach_email
+           ;;
+
+        32) echo -e "${RED}Running Sherlock - Username Tracker...${NC}"
+           read -p "Enter Target Username: " sherlock_user
+           sherlock $sherlock_user
+           ;;
+
+
+        21) echo -e "${BOLD_BLUE}Installing necessary tools and packages...${NC}"
        # pip installs
        sudo apt-get update
        sudo pip3 install maigret
@@ -269,10 +337,32 @@ clear
        sudo pip3 install onionsearch
        sudo pip3 install search4
        sudo pip3 install bbot
+       
+       # New features - pip installs
+       sudo pip3 install h8mail
+       sudo pip3 install twint
+       sudo pip3 install gitfive
+       sudo pip3 install linkedin2username
+       
+       # APT installs
        sudo apt install assetfinder -y
        sudo apt install photon -y
        sudo apt install tor -y    
-       sudo apt install curl -y      
+       sudo apt install curl -y
+       sudo apt install whois -y
+       sudo apt install dnsrecon -y
+       sudo apt install whatweb -y
+       
+       # Go-based tools
+       echo -e "${BOLD_YELLOW}Installing Go-based tools...${NC}"
+       go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+       go install github.com/tomnomnom/waybackurls@latest
+       go install github.com/sherlock-project/sherlock@latest
+       
+       # Add Go binaries to PATH if not already present
+       export PATH=$PATH:~/go/bin
+       echo 'export PATH=$PATH:~/go/bin' >> ~/.bashrc
+       
        clear
     
        echo -e "${BOLD_GREEN}All tools and packages have been installed.${NC}"
@@ -328,7 +418,17 @@ tools["16) Arachnid-spider"]="is an OSINT web crawler that targets websites, enu
 tools["17) Photon"]="Incredibly fast crawler designed for OSINT.."
 tools["18) Postleaks"]="Search for sensitive data in Postman public library."
 tools["19) Postmaniac"]="Extract creds, token, username, email & more from Postman Public Workspaces."
-tools["20) oxdork"]="Extract creds, token, username, email & more from Postman Public Workspaces."
+tools["20) oxdork"]="Google dorking tool to find sensitive information and vulnerabilities."
+tools["23) WHOIS"]="Domain registration lookup tool to gather ownership and registration information."
+tools["24) Waybackurls"]="Fetch all URLs that the Wayback Machine knows about for a domain."
+tools["25) DNSRecon"]="DNS enumeration and network reconnaissance tool for gathering DNS information."
+tools["26) Subfinder"]="Fast passive subdomain discovery tool with multiple data sources."
+tools["27) WhatWeb"]="Web scanner that identifies websites, CMS, plugins, and web technologies."
+tools["28) GitFive"]="GitHub OSINT tool to gather intelligence on GitHub users and repositories."
+tools["29) Twint"]="Advanced Twitter scraping tool for gathering intelligence from Twitter/X accounts."
+tools["30) LinkedIn2Username"]="Generate username lists from LinkedIn company profiles for OSINT."
+tools["31) H8mail"]="Email OSINT and breach hunting tool to find compromised credentials."
+tools["32) Sherlock"]="Hunt down social media accounts by username across social networks."
 
 RED='\033[0;31m'
 PURPLE='\033[0;35m'

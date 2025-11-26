@@ -94,6 +94,20 @@ Pip-Intel offers a wide range of functionalities including:
 - **Postman Data Search** - Search for sensitive data in Postman
 - **Credentials Extraction** - Extract tokens, credentials from Postman
 - **Google Dorking** - Advanced Google search queries
+- **WHOIS Lookup** - Domain registration and ownership information
+- **Wayback Machine** - Historical website data and URL archives
+- **DNS Reconnaissance** - Advanced DNS enumeration and analysis
+- **Advanced Subdomain Finder** - Multi-source subdomain discovery
+- **Web Technologies Detection** - Identify CMS, frameworks, and technologies
+
+### 🐙 GitHub & Platform OSINT
+- **GitHub Intelligence** - Gather intelligence on GitHub users and repositories
+- **Twitter/X OSINT** - Advanced Twitter account intelligence gathering
+- **LinkedIn Profile Finder** - Generate user lists from company profiles
+
+### 🔓 Breach & Leak Detection
+- **Email Breach Checker** - Find compromised credentials in data breaches
+- **Sherlock Username Tracker** - Hunt social media accounts across platforms
 
 ---
 
@@ -103,6 +117,7 @@ Pip-Intel offers a wide range of functionalities including:
 - Linux-based operating system (Ubuntu/Debian/Kali recommended)
 - Python 3.x
 - pip3
+- Go (Golang) - for some tools
 - sudo privileges
 
 ### Quick Install
@@ -145,11 +160,25 @@ sudo pip3 install onionsearch
 sudo pip3 install search4
 sudo pip3 install bbot
 
+# New features - pip packages
+sudo pip3 install h8mail
+sudo pip3 install twint
+sudo pip3 install gitfive
+sudo pip3 install linkedin2username
+
 # Install apt packages
 sudo apt install assetfinder -y
 sudo apt install photon -y
 sudo apt install tor -y
 sudo apt install curl -y
+sudo apt install whois -y
+sudo apt install dnsrecon -y
+sudo apt install whatweb -y
+
+# Install Go-based tools
+go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+go install github.com/tomnomnom/waybackurls@latest
+go install github.com/sherlock-project/sherlock@latest
 ```
 
 ---
@@ -171,11 +200,13 @@ The tool presents an interactive menu with the following categories:
 3. **IP Geolocation and Mapping** (Options 5-6)
 4. **Deep Social Media and User Analysis** (Options 7-11)
 5. **Dark Web** (Options 12-13)
-6. **Web Intelligence** (Options 14-20)
-7. **Install** (Option 21)
-8. **System Info** (Option 22)
-9. **Exit** (Option 99)
-10. **About** (Option 0)
+6. **Web Intelligence** (Options 14-20, 23-27)
+7. **GitHub & Platform OSINT** (Options 28-30)
+8. **Breach & Leak Detection** (Options 31-32)
+9. **Install** (Option 21)
+10. **System Info** (Option 22)
+11. **Exit** (Option 99)
+12. **About** (Option 0)
 
 ### Example Usage
 
@@ -220,6 +251,16 @@ Enter IP Address: 8.8.8.8
 | **Postleaks** | Search Postman public library |
 | **Postmaniac** | Extract credentials from Postman |
 | **Oxdork** | Google Dorking tool |
+| **WHOIS** | Domain registration lookup |
+| **Waybackurls** | Fetch URLs from Wayback Machine |
+| **DNSRecon** | DNS enumeration tool |
+| **Subfinder** | Fast passive subdomain discovery |
+| **WhatWeb** | Web scanner for CMS and technologies |
+| **GitFive** | GitHub OSINT tool |
+| **Twint** | Twitter scraping and OSINT |
+| **LinkedIn2Username** | LinkedIn profile intelligence |
+| **H8mail** | Email breach and credential hunting |
+| **Sherlock** | Hunt usernames across social networks |
 
 ---
 
